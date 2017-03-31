@@ -339,7 +339,7 @@ class Debugger {
 				$trace['path'] = self::trimPath($trace['file']);
 				$trace['reference'] = $reference;
 				unset($trace['object'], $trace['args']);
-				$back[] = String::insert($tpl, $trace, array('before' => '{:', 'after' => '}'));
+				$back[] = CakeText::insert($tpl, $trace, array('before' => '{:', 'after' => '}'));
 			}
 		}
 
