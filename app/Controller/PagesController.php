@@ -52,4 +52,7 @@ class PagesController extends AppController {
 	public function display() {
 		
 	}
+	public function index(){
+		
+	}
 }
