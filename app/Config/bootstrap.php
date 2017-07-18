@@ -88,6 +88,7 @@ Cache::config('default', array('engine' => 'File'));
  *
  * ));
  */
+CakePlugin::loadAll(); // Loads all plugins at once
 Configure::write('Dispatcher.filters', array(
 	'AssetDispatcher',
 	'CacheDispatcher'
