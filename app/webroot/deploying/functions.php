@@ -43,7 +43,7 @@ function deploy($cur, $print = false, $all = false)
             $migrationLock = "/tmp/" . $cur['project'] . "_migration_lock";
             if (!file_exists($migrationLock)) {
                 touch($migrationLock);
-                run("cd /var/tmp/cakephp/app;php Console/cake Migrations.migration run all --precheck Migrations.PrecheckCondition", $print);
+                run("cd /var/tmp/cakephp/app;php Console/cake.php Migrations.migration run all --precheck Migrations.PrecheckCondition", $print);
                 unlink($migrationLock);
             }
         }
