@@ -27,12 +27,12 @@ function run($cmd, $print = false)
 
 function deploy($cur, $print = false, $all = false)
 {
-	run('git checkout -- .');
-    run('git clean -f');
+	run('sudo git checkout -- .');
+    run('sudo git clean -f');
     if (!$all) {
-    	run("git pull --rebase", $print);
+    	run("sudo git pull --rebase", $print);
     } else {
-    	run ("git fetch && git rebase --autostash FETCH_HEAD", $print);
+    	run ("sudo git fetch && git rebase --autostash FETCH_HEAD", $print);
     }
     # if this project is cakephp
     if (!empty($cur['type']) && $cur['type'] == 'cakephp') {

@@ -72,8 +72,8 @@ if (!empty($cur)) {
     # List branches remote
     if ($hidden) {
         echo '<h2>Switch branches</h2>';
-        run('git remote update -p origin', false);
-        $result = run("git branch -r");
+        run('sudo git remote update -p origin', false);
+        $result = run("sudo git branch -r");
         echo '<ul>';
         foreach ($result[0] as $key => $branch) {
             $branch = trim($branch);
@@ -87,9 +87,9 @@ if (!empty($cur)) {
             
             $branchName = str_replace('origin/', '', $_GET['branch']);
             if ($branchName != $currentBranch[0][0]) {
-                $result = run("git checkout $branchName", false);
+                $result = run("sudo git checkout $branchName", false);
                 if ($result[1] != 0) {
-                    run("git checkout -b $branchName $branch", true);
+                    run("sudo git checkout -b $branchName $branch", true);
                 }
                 echo '<em>Switched!</em>';
             }
@@ -99,18 +99,18 @@ if (!empty($cur)) {
 
     # Current Branch
     echo '<h2>Current branch</h2>';
-    run('git rev-parse --abbrev-ref HEAD', true);
+    run('sudo git rev-parse --abbrev-ref HEAD', true);
     ?>
     <h2>Current Status <small><?php echo microtime(true)?></small></h2>
     <code><?php echo $cur['project'] ?>, <?php echo $cur['server_name'] ?>, <?php echo $cur['directory'] ?></code><br/>
-    <code><?php echo "git diff --stat HEAD...{$cur['remote']}/{$cur['branch']}" ?></code>
+    <code><?php echo "sudo git diff --stat HEAD...{$cur['remote']}/{$cur['branch']}" ?></code>
 
     <?php
 
     if (empty($_POST)) {
         # Get diff with remote branch
-        run("git remote update {$cur['remote']}");
-        list($output, $return) = run("git diff --stat HEAD...{$cur['remote']}/{$cur['branch']}", true);
+        run("sudo git remote update {$cur['remote']}");
+        list($output, $return) = run("sudo git diff --stat HEAD...{$cur['remote']}/{$cur['branch']}", true);
         if (empty($output)) {
             echo 'This branch already up-to-date';
         }
@@ -126,7 +126,7 @@ if (!empty($cur)) {
     }
 
     echo '<h2>Current branch\'s commit logs <small>' . microtime(true) . '</small></h2>';
-    run('git --no-pager log --date=relative --since="2 weeks ago" --date-order --full-history --all --pretty=tformat:"%ad%x09%h%x09%x09%ae%x09%x09%s "' . $cur['branch'], true);
+    run('sudo git --no-pager log --date=relative --since="2 weeks ago" --date-order --full-history --all --pretty=tformat:"%ad%x09%h%x09%x09%ae%x09%x09%s "' . $cur['branch'], true);
     echo '--- end ---';
     a:
 }
