@@ -17,7 +17,7 @@ function run($cmd, $print = false)
 			touch(__DIR__ . DIRECTORY_SEPARATOR . 'deploy.log');
 		}
 		file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'deploy.log',
-			'[' . date('d-m-Y H:i:s') . '] ' . 
+            'UTC'.
 			$result . ": $cmd " . implode("\n", $output) . "\n"
 		, FILE_APPEND);
 	}
@@ -43,7 +43,7 @@ function deploy($cur, $print = false, $all = false)
             $migrationLock = "/tmp/" . $cur['project'] . "_migration_lock";
             if (!file_exists($migrationLock)) {
                 touch($migrationLock);
-                run("cd /var/tmp/cakephp/app; Console/cake Migrations.migration run all --precheck Migrations.PrecheckCondition", $print);
+                run("cd /var/tmp/cakephp/app; Console/cake.php Migrations.migration run all --precheck Migrations.PrecheckCondition", $print);
                 unlink($migrationLock);
             }
         }
