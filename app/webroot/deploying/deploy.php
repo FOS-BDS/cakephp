@@ -87,9 +87,9 @@ if (!empty($cur)) {
             
             $branchName = str_replace('origin/', '', $_GET['branch']);
             if ($branchName != $currentBranch[0][0]) {
-                $result = run("sudo git checkout $branchName", false);
+                $result = run("git checkout $branchName", false);
                 if ($result[1] != 0) {
-                    run("sudo git checkout -b $branchName $branch", true);
+                    run("git checkout -b $branchName $branch", true);
                 }
                 echo '<em>Switched!</em>';
             }
