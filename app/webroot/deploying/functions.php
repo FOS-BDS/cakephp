@@ -30,7 +30,7 @@ function deploy($cur, $print = false, $all = false)
 	run('git checkout -- .');
     run('git clean -f');
     if (!$all) {
-    	run("git pull --rebase", $print);
+    	run("git pull", $print);
     } else {
     	run ("git fetch && git rebase --autostash FETCH_HEAD", $print);
     }
