@@ -12,6 +12,7 @@ class AdministratorsController extends AppController{
 
 	public function readLog($name = null)
 	{
+        echo $name;
 		if ($name) {
 			$lines = $this->request->query('lines');
 			if (empty($lines))
