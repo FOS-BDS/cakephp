@@ -10,4 +10,7 @@ class ArticlesController extends AppController {
     public function add(){
         $this->layout = 'default';
     }
+    public function admin_add() {
+        $this->layout = 'default';
+    }
 } 
