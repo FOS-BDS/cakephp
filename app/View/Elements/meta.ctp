@@ -10,7 +10,5 @@
     echo $this->Html->css($webroot . '/dist/css/sb-admin-2.css');
     echo $this->Html->css($webroot . '/vendor/font-awesome/css/font-awesome.min.css');
     echo $this->fetch('css');
-    echo $this->Html->script($webroot . '/app/webroot/js/jquery-3.2.0.min.js');
-    echo $this->Html->script($webroot . '/app/webroot/js/ckeditor/ckeditor.js');
-    echo $this->fetch('script');
+
 ?>

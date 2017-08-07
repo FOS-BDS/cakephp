@@ -12,5 +12,8 @@ class ArticlesController extends AppController {
     }
     public function admin_add() {
         $this->layout = 'default';
+        if ($this->request->is('post') || $this->request->is('put')){
+            debug($this->request);die;
+        }
     }
 } 

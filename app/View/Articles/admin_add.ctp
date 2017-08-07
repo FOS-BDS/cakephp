@@ -20,12 +20,38 @@
                                     'role'=>'form'
                                 ));
                             ?>
-                                <div class="form-group">
-                                    <label>Text Input</label>
-                                    <input type="textarea" class="form-control" cols="80" id="editor1" name="editor1" rows="10">
-                                    <p class="help-block">Example block-level help text here.</p>
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" name="title">
+                            </div>
+                            <div class="form-group">
+                                <label>Danh mục</label>
+                                <select class="form-control" name="category">
+                                    <option>Tin tức</option>
+                                    <option>Bài Thuốc</option>
+                                    <option>Công nghệ</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Nội dung</label>
+                                <input type="textarea" class="form-control" id="editor1" name="content">
+                            </div>
+                            <div class="form-group">
+                                <label>Checkboxes</label>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="status" value=0 class="status">Public
+                                    </label>
                                 </div>
-                            </form>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btn-lg" type="submit">Thêm</button>
+                                </span>
+                            </div>
+                            <?php
+                                echo $this->Form->end();
+                            ?>
                         </div>
                     </div>
             </div>
@@ -39,4 +65,14 @@
         height: 260,
         width: 700
     } );
+    $(document).ready(function(){
+        $('.status').change(function(){
+            check = $('.status').is(':checked');
+            if( check    ==   true ){
+                $('.status').val(true);
+            }else{
+                $('.status').val(false)
+            }
+        });
+    });
 </script>

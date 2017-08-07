@@ -7,7 +7,7 @@
 	</title>
 	<?php
 		echo $this->element('meta');
-		echo $this->fetch('script');
+        echo $this->element('script');
 	?>
 </head>
 <body>
@@ -17,4 +17,7 @@
 	<?php echo $this->element('sql_dump'); ?>
 </div>
 </body>
+<?php
+echo $this->element('admin_script');
+?>
 </html>
