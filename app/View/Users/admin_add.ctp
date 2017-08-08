@@ -1,7 +1,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Articles - add</h1>
+            <h1 class="page-header">Users - add</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <?php
-                            echo $this->Form->create('Article',
+                            echo $this->Form->create('Users',
                                 array(
                                     'role'=>'form'
                                 ));
@@ -32,49 +32,25 @@
                                     <option>Công nghệ</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label>Nội dung</label>
-                                <input type="textarea" class="form-control" id="editor1" name="content">
-                            </div>
-                            <div class="form-group">
-                                <label>Checkboxes</label>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="status" value=0 class="status">Public
-                                    </label>
-                                </div>
-                            </div>
                             <div class="form-group input-group">
                                 <span class="input-group-btn">
                                     <?php
-                                        echo $this->Form->submit('Thêm',array('class'=>'btn btn-default btn-lg'))
+                                    echo $this->Form->submit('Thêm',array('class'=>'btn btn-default btn-lg'))
                                     ?>
                                 </span>
                             </div>
                             <?php
-                                echo $this->Form->end();
+                            echo $this->Form->end();
                             ?>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
+        <!-- /.container-fluid -->
     </div>
-    <!-- /.container-fluid -->
-</div>
 
-<script>
-    CKEDITOR.replace( 'editor1', {
-        height: 260,
-        width: 700
-    } );
-    $(document).ready(function(){
-        $('.status').change(function(){
-            check = $('.status').is(':checked');
-            if( check    ==   true ){
-                $('.status').val(true);
-            }else{
-                $('.status').val(false)
-            }
+    <script>
+        $(document).ready(function(){
         });
-    });
-</script>
+    </script>
