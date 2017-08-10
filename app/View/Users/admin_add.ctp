@@ -1,7 +1,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Users - add</h1>
+            <h1 class="page-header"></h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -9,35 +9,31 @@
         <div class="panel panel-default">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Basic Form Elements
+                    Users - add
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
                             <?php
-                            echo $this->Form->create('Users',
+                            echo $this->Form->create('User',
                                 array(
                                     'role'=>'form'
                                 ));
                             ?>
                             <div class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control" name="title">
+                                <?php
+                                    echo $this->Form->input('username', array('class'=>'form-control'));
+                                ?>
                             </div>
                             <div class="form-group">
-                                <label>Danh mục</label>
-                                <select class="form-control" name="category">
-                                    <option>Tin tức</option>
-                                    <option>Bài Thuốc</option>
-                                    <option>Công nghệ</option>
-                                </select>
+                                <?php
+                                    echo $this->Form->input('password', array('type'=>'text','class'=>'form-control'));
+                                ?>
                             </div>
-                            <div class="form-group input-group">
-                                <span class="input-group-btn">
+                            <div class="form-group">
                                     <?php
-                                    echo $this->Form->submit('Thêm',array('class'=>'btn btn-default btn-lg'))
+                                    echo $this->Form->submit('Thêm',array('class'=>'btn btn-default btn-lg btn-success'))
                                     ?>
-                                </span>
                             </div>
                             <?php
                             echo $this->Form->end();
