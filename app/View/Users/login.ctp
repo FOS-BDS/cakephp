@@ -5,8 +5,10 @@
                 <h3 class="panel-title">Please Sign In</h3>
             </div>
             <div class="panel-body">
+
                 <?php
-                    echo $this->Form->create('Users',array('role'=>'form'));
+                    echo $this->Form->create('User',array('role'=>'form'));
+                    echo $this->Session->flash('error');
                 ?>
                     <fieldset>
                         <div class="form-group">

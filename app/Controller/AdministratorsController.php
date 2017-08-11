@@ -7,7 +7,6 @@ class AdministratorsController extends AppController{
 	public function beforeFilter()
 	{
 		parent::beforeFilter();
-		$this->layout = 'default_bootstrap';
 	}
 
 	public function readLog($name = null)
@@ -76,4 +75,7 @@ class AdministratorsController extends AppController{
 		$this->Session->setFlash('Đã xóa trắng 3 files : debug và error, info log','success');
 		$this->redirect(array('action' => 'index'));
 	}
+    public function admin_index() {
+
+    }
 }

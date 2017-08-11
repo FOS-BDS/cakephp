@@ -6,7 +6,13 @@
  * Time: 9:49 PM
  */
 
-class ArticlesController extends AppController {
+class CategoriesController extends AppController {
+    public $components = array(
+        'Auth',
+        'Session',
+        'Cookie',
+        'Paginator',
+    );
     public function beforeFilter() {
         parent::beforeFilter();
     }
@@ -16,7 +22,10 @@ class ArticlesController extends AppController {
     public function admin_add() {
         $this->layout = 'default';
         if ($this->request->is('post') || $this->request->is('put')){
-            debug($this->request);die;
+            if ($this->Category->save($this->request->data)){
+                $this->Session->setFlash('This category is saved','success', array(), 'success');
+                $this->redirect('add');
+            }
         }
     }
 } 
