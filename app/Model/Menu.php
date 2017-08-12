@@ -1,6 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
-class Article extends AppModel {
+class Menu extends AppModel {
     public $validate = array(
         'slug' => array(
             'required' => array(

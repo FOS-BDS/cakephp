@@ -265,6 +265,19 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
+            <li>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Objects(highest menu)<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="<?php echo $this->Html->url(array(
+                            "controller" => "Categories",
+                            "action" => "object_add",
+                            'admin'=>true
+                        )); ?>">Thêm Object (highest menu)</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

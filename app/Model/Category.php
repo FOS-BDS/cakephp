@@ -1,7 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: start
- * Date: 8/11/2017
- * Time: 5:55 PM
- */
+App::uses('AppModel', 'Model');
+class Category extends AppModel {
+    public $hasMany = array( 'Menu' => array(
+        'className' => 'Menu',
+    ));
+}

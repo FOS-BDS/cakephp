@@ -5,7 +5,7 @@
  * Date: 4/3/2017
  * Time: 9:49 PM
  */
-
+App::uses('AppController', 'Controller');
 class ArticlesController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
