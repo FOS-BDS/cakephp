@@ -9,4 +9,9 @@ class Menu extends AppModel {
             )
         )
     );
+    public $hasMany = array(
+        'Category' => array(
+            'className' => 'Category',
+        )
+    );
 }

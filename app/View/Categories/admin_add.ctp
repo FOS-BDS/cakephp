@@ -16,6 +16,7 @@
                             echo $this->Session->flash('success');
                             echo $this->Form->input('title',array('class'=>'form-control'));
                             echo $this->Form->input('slug',array('class'=>'form-control'));
+                            echo $this->Form->input('menu_id', array('options' => $menus, 'empty' => 'Chọn một chủ đề','class'=>'form-control'));
                             echo $this->Form->input('description',array('type'=>'textarea','class'=>'form-control'));
                             echo $this->Form->input('published',array('label'=>'<b>Published</b>','type'=>'checkbox','class'=>'form-control'));
                             echo $this->Form->submit('Thêm',array('class'=>'btn btn-default btn-lg'));

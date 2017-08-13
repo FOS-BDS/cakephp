@@ -22,12 +22,15 @@ class CategoriesController extends AppController {
     }
     public function admin_add() {
         $this->layout = 'default';
+        $this->loadModel('Menu');
+        $menus = $this->Menu->find('list',array('fields'=>array('id','title')));
         if ($this->request->is('post') || $this->request->is('put')){
             if ($this->Category->save($this->request->data)){
                 $this->Session->setFlash('This category is saved','success', array(), 'success');
                 $this->redirect('add');
             }
         }
+        $this->set(compact('menus'));
     }
     public function admin_object_add() {
         $this->layout = 'default';
