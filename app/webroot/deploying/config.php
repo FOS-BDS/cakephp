@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 set_time_limit(1000);
 $platformServers = array(
-    '52.40.209.126'
+    '52.35.82.8'
 );
 
 $projects = array(
