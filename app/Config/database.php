@@ -59,7 +59,7 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'root',
+		'login' => 'xuancan',
 		'password' => 'xuancan111990',
 		'database' => 'cakephp',
 		'prefix' => '',

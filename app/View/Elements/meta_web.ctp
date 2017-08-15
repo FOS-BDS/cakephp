@@ -4,7 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <?php
-//    $webroot = $this->webroot;
+    $webroot = '/app/webroot';
     echo $this->Html->css($webroot.'/vendor/bootstrap/css/bootstrap.min.css');
     echo $this->Html->css($webroot.'/vendor/metisMenu/metisMenu.min.css');
     echo $this->Html->css($webroot.'/dist/css/sb-admin-2.css');
