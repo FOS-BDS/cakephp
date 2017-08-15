@@ -4,11 +4,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <?php
-//    $webroot = $this->webroot;
-    echo $this->Html->css('/vendor/bootstrap/css/bootstrap.min.css');
-    echo $this->Html->css('/vendor/metisMenu/metisMenu.min.css');
-    echo $this->Html->css('/dist/css/sb-admin-2.css');
-    echo $this->Html->css('/vendor/font-awesome/css/font-awesome.min.css');
+    $webroot = '/app/webroot';
+    echo $this->Html->css($webroot.'/vendor/bootstrap/css/bootstrap.min.css');
+    echo $this->Html->css($webroot.'/vendor/metisMenu/metisMenu.min.css');
+    echo $this->Html->css($webroot.'/dist/css/sb-admin-2.css');
+    echo $this->Html->css($webroot.'/vendor/font-awesome/css/font-awesome.min.css');
     echo $this->fetch('css');
 
 ?>

@@ -12,15 +12,15 @@ function run($cmd, $print = false)
 		echo "</pre>";
 	}
 
-	if ($result != 0) {
-		if (!file_exists(__DIR__ . DIRECTORY_SEPARATOR . 'deploy.log')) {
-			touch(__DIR__ . DIRECTORY_SEPARATOR . 'deploy.log');
-		}
-		file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'deploy.log',
-            'UTC'.
-			$result . ": $cmd " . implode("\n", $output) . "\n"
-		, FILE_APPEND);
-	}
+//	if ($result != 0) {
+//		if (!file_exists(__DIR__ . DIRECTORY_SEPARATOR . 'deploy.log')) {
+//			touch(__DIR__ . DIRECTORY_SEPARATOR . 'deploy.log');
+//		}
+//		file_put_contents(__DIR__ . DIRECTORY_SEPARATOR . 'deploy.log',
+//            'UTC'.
+//			$result . ": $cmd " . implode("\n", $output) . "\n"
+//		, FILE_APPEND);
+//	}
 
 	return array($output, $result);
 }
