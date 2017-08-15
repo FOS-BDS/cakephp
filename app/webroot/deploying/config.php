@@ -17,7 +17,7 @@ $projects = array(
         'from' => 'localhost', # where is request that start deploying came from ? ( localhost - on same server, not automatic, github - from github, auto deploy)
         'branch' => 'master', # git branch's name use for pull
         'type' => 'cakephp', # each project type will deploy a particular way
-        'migration' => array('52.40.209.126'),
+        'migration' => array('52.35.82.8'),
         'composer' => false
     )
 );
