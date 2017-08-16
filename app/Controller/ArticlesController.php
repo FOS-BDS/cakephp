@@ -7,6 +7,12 @@
  */
 App::uses('AppController', 'Controller');
 class ArticlesController extends AppController {
+    public $components = array(
+        'Auth',
+        'Session',
+        'Cookie',
+        'Paginator',
+    );
     public function beforeFilter() {
         parent::beforeFilter();
     }
@@ -15,8 +21,12 @@ class ArticlesController extends AppController {
     }
     public function admin_add() {
         $this->layout = 'default';
+        $this->loadModel('Category');
+        $categorys = $this->Category->find('list',array('fields'=>array('id','title')));
         if ($this->request->is('post') || $this->request->is('put')){
-            debug($this->request);die;
+            $this->Article->save($this->request->data);
+            $this->Session->setFlash('This Articles is saved','success', array(), 'success');
         }
+        $this->set(compact('categorys'));
     }
 } 

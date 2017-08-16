@@ -237,23 +237,33 @@
                 <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Users<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="<?php echo $this->Html->url(array(
                             "controller" => "users",
                             "action" => "add",
                             'admin'=>true
-                        )); ?>">Thêm user</a>
-                    </li>
-                    <li>
-                        <a href="morris.html">Morris.js Charts</a>
+                        )); ?>"><i class="fa fa-user-plus fa-fw"></i>Thêm user</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Categories<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-object-group fa-fw"></i> Objects(highest menu)<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="<?php echo $this->Html->url(array(
+                            "controller" => "Categories",
+                            "action" => "object_add",
+                            'admin'=>true
+                        )); ?>">Thêm Object (highest menu)</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bars fa-fw"></i> Categories<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="<?php echo $this->Html->url(array(
@@ -266,14 +276,14 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Objects(highest menu)<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-pagelines fa-fw"></i>Articles<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="<?php echo $this->Html->url(array(
-                            "controller" => "Categories",
-                            "action" => "object_add",
+                            "controller" => "Articles",
+                            "action" => "add",
                             'admin'=>true
-                        )); ?>">Thêm Object (highest menu)</a>
+                        )); ?>">Thêm Articles</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
