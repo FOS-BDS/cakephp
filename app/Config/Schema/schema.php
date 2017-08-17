@@ -78,6 +78,7 @@ class AppSchema extends CakeSchema {
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => null, 'key' => 'index'),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'facebook_uid' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 100, 'key' => 'index', 'collate' => 'utf8_unicode_ci', 'charset' => 'utf8'),
+		'enter' => array('type' => 'integer', 'null' => true, 'default' => null),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1),
 			'BY_EMAIL' => array('column' => 'email', 'unique' => 0),
