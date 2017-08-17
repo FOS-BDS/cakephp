@@ -29,4 +29,7 @@ class ArticlesController extends AppController {
         }
         $this->set(compact('categorys'));
     }
+    public function admin_index() {
+
+    }
 } 

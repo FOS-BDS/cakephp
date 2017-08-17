@@ -1,4 +1,3 @@
-<div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header"></h1>
@@ -19,23 +18,12 @@
                                 array(
                                     'role'=>'form'
                                 ));
-                            ?>
-                            <div class="form-group">
-                                <?php
-                                    echo $this->Form->input('username', array('class'=>'form-control'));
-                                ?>
-                            </div>
-                            <div class="form-group">
-                                <?php
-                                    echo $this->Form->input('password', array('type'=>'text','class'=>'form-control'));
-                                ?>
-                            </div>
-                            <div class="form-group">
-                                    <?php
-                                    echo $this->Form->submit('Thêm',array('class'=>'btn btn-default btn-lg btn-success'))
-                                    ?>
-                            </div>
-                            <?php
+                                echo $this->Session->flash('success');
+                                echo $this->Form->input('username', array('class'=>'form-control'));
+                                echo $this->Form->input('password', array('type'=>'text','class'=>'form-control'));
+                                echo $this->Form->input('name', array('type'=>'text','class'=>'form-control'));
+                                echo $this->Form->input('email', array('type'=>'text','class'=>'form-control'));
+                                echo $this->Form->submit('Thêm',array('class'=>'btn btn-default btn-lg btn-success'));
                             echo $this->Form->end();
                             ?>
                         </div>
@@ -44,8 +32,6 @@
             </div>
         </div>
         <!-- /.container-fluid -->
-    </div>
-
     <script>
         $(document).ready(function(){
         });

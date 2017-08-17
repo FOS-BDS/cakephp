@@ -5,6 +5,9 @@
     <!-- /.col-lg-12 -->
 </div>
 <div class="row"
+     <?php
+     echo $this->Session->flash('success');
+     ?>
     <div class="table table-responsive table-condensed table-hover">
         <table class="table">
             <thead>

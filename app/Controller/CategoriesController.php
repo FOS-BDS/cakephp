@@ -43,4 +43,10 @@ class CategoriesController extends AppController {
             }
         }
     }
+    public function admin_menu_index() {
+
+    }
+    public function admin_index() {
+
+    }
 } 

@@ -257,14 +257,21 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-object-group fa-fw"></i> Objects(highest menu)<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-object-group fa-fw"></i> Menus(highest menu)<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="<?php echo $this->Html->url(array(
                             "controller" => "Categories",
                             "action" => "object_add",
                             'admin'=>true
-                        )); ?>">Thêm Object (highest menu)</a>
+                        )); ?>">Thêm Menu</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->Html->url(array(
+                            "controller" => "Categories",
+                            "action" => "menu_index",
+                            'admin'=>true
+                        )); ?>">Edit Menu</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -279,6 +286,13 @@
                             'admin'=>true
                         )); ?>">Thêm Category</a>
                     </li>
+                    <li>
+                        <a href="<?php echo $this->Html->url(array(
+                            "controller" => "Categories",
+                            "action" => "index",
+                            'admin'=>true
+                        )); ?>">Category - Index</a>
+                    </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
@@ -291,6 +305,13 @@
                             "action" => "add",
                             'admin'=>true
                         )); ?>">Thêm Articles</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->Html->url(array(
+                            "controller" => "Articles",
+                            "action" => "index",
+                            'admin'=>true
+                        )); ?>">Articles - index</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

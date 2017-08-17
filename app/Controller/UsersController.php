@@ -24,7 +24,13 @@ class UsersController extends AppController {
     }
     public function admin_add() {
         if ($this->request->is('post')){
-            $this->User->save($this->request->data);
+            if($this->User->save($this->request->data)){
+                $this->Session->setFlash('Add successful.','success', array(), 'success');
+                $this->redirect(array('controller'=>'users','action'=>'index'));
+            }else{
+                $this->Session->setFlash('Add fail.','error', array(), 'error');
+            }
+
         }
     }
     public function logout() {
@@ -38,10 +44,21 @@ class UsersController extends AppController {
         $users = $this->Paginator->paginate();
         $this->set('users',$users);
     }
-    public function admin_delete() {
-
+    public function admin_delete($id) {
+        $this->User->delete($id);
+        $this->Session->setFlash('Delete successful.','success', array(), 'success');
+        $this->redirect(array('controller'=>'users','action'=>'index'));
     }
-    public function admin_edit() {
-
+    public function admin_edit($id) {
+        if($this->request->is('post') || $this->request->is('put')){
+            $this->User->id = $id;
+            if($this->User->save($this->request->data)){
+                $this->Session->setFlash('Data saved','success', array(), 'success');
+            }else{
+                $this->Session->setFlash('Có lỗi xảy ra.','error', array(), 'error');
+            }
+        }
+            $user = $this->User->findById($id);
+            $this->request->data = $user;
     }
 }
