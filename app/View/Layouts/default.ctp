@@ -13,7 +13,9 @@
 <body>
 <div id="wrapper">
     <?php echo $this->element('nav'); ?>
-    <?php echo $this->fetch('content'); ?>
+    <div id="page-wrapper">
+        <?php echo $this->fetch('content'); ?>
+    </div>
 	<?php echo $this->element('sql_dump'); ?>
 </div>
 </body>

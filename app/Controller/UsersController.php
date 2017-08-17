@@ -32,4 +32,16 @@ class UsersController extends AppController {
         $this->Cookie->destroy();
         return $this->redirect($this->Auth->logout());
     }
+    public function admin_index() {
+        $this->User->recursive = -1;
+        $this->Paginator->settings['User']['limit'] = 20;
+        $users = $this->Paginator->paginate();
+        $this->set('users',$users);
+    }
+    public function admin_delete() {
+
+    }
+    public function admin_edit() {
+
+    }
 }

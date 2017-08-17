@@ -246,6 +246,13 @@
                             'admin'=>true
                         )); ?>"><i class="fa fa-user-plus fa-fw"></i>Thêm user</a>
                     </li>
+                    <li>
+                        <a href="<?php echo $this->Html->url(array(
+                            "controller" => "users",
+                            "action" => "index",
+                            'admin'=>true
+                        )); ?>"><i class="fa fa-user-md fa-fw"></i>All users</a>
+                    </li>
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
