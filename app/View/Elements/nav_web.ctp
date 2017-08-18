@@ -1,3 +1,11 @@
+<?php
+$Menu = ClassRegistry::init('Menu');
+$menus =$Menu->find('all',
+    array(
+        'conditions'=> array('Menu.published'=>1),
+        'contain'=>array('Category'=>array('conditions'=>array('Category.published'=>true)))
+    ));
+?>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">

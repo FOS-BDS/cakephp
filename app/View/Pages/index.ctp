@@ -6,13 +6,26 @@
 <div id="about" class="container-fluid">
     <div class="row">
         <div class="col-sm-8">
-            <h2>[HOT] <?php echo $hot_article['Article']['title'] ?></h2>
-            <div style="max-height: 300px;overflow-y: scroll">
-                <?php
-                    echo $hot_article['Article']['body'];
-                ?>
-            </div>
-
+            <h2>Chuyên mục công nghệ</h2>
+            <?php
+                if(count($tech_article) > 0){
+                    foreach($tech_article as $tech){
+            ?>
+                        <ul>
+                            <li style="font-weight: bold;font-size: medium">
+                                <?php
+                                echo $this->Html->link(
+                                    $tech['Article']['title'],
+                                    array('controller'=>'articles','action'=>'view',$tech['Article']['id']),
+                                    array()
+                                );
+                                ?>
+                            </li>
+                        </ul>
+            <?php
+                    }
+                }
+            ?>
         </div>
         <div class="col-sm-4">
             <span class="glyphicon glyphicon-signal logo"></span>
@@ -23,15 +36,29 @@
 <div class="container-fluid bg-grey">
     <div class="row">
         <div class="col-sm-4">
-            <span class="glyphicon glyphicon-globe logo slideanim"></span>
+            <span class="glyphicon glyphicon-leaf logo slideanim"></span>
         </div>
         <div class="col-sm-8">
-            <h2>[NEW] <?php echo $new_article['Article']['title'] ?></h2>
-            <div style="max-height: 300px;overflow-y: scroll">
+            <h2>Bài thuốc quí dân gian</h2>
+            <?php
+            if(count($medicine_articles) > 0){
+                foreach($medicine_articles as $medicine){
+                    ?>
+                    <ul>
+                        <li style="font-weight: bold;font-size: medium">
+                            <?php
+                            echo $this->Html->link(
+                                $medicine['Article']['title'],
+                                array('controller'=>'articles','action'=>'view',$medicine['Article']['id']),
+                                array()
+                            );
+                            ?>
+                        </li>
+                    </ul>
                 <?php
-                echo $new_article['Article']['body'];
-                ?>
-            </div>
+                }
+            }
+            ?>
         </div>
     </div>
 </div>

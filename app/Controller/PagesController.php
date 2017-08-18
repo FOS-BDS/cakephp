@@ -15,24 +15,25 @@ class PagesController extends AppController {
         $this->loadModel('Category');
         $this->loadModel('Article');
         $this->Menu->contain = array();
-        $menus = $this->Menu->find('all',
-            array(
-                'conditions'=> array('Menu.published'=>1),
-                'contain'=>array('Category'=>array('conditions'=>array('Category.published'=>true)))
-            ));
         $categories = $this->Category->find('all',
             array(
                 'conditions'=> array('Category.published'=>1),
             ));
-        $hot_article = $this->Article->find('first',array(
+        $tech_article = $this->Article->find('all',array(
+            'conditions'=>array('Category.slug' => 'cong-nghe'),
             'order' => array('view'=>'DESC'),
-            'limit' => 1
+            'limit' => 5
+        ));
+        $medicine_articles = $this->Article->find('all',array(
+            'conditions'=>array('Category.slug' => 'bai-thuoc'),
+            'order' => array('view'=>'DESC'),
+            'limit' => 5
         ));
         $new_article = $this->Article->find('first',array(
-            'order' => array('created'=>'DESC'),
+            'order' => array('Article.created'=>'DESC'),
             'limit' => 1
         ));
-        $this->set(compact('menus','hot_article','new_article','categories'));
+        $this->set(compact('menus','new_article','categories','tech_article','medicine_articles'));
 	}
     public function phpinfo(){
          phpinfo();

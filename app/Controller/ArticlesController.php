@@ -15,6 +15,8 @@ class ArticlesController extends AppController {
     );
     public function beforeFilter() {
         parent::beforeFilter();
+        $this->Auth->allow('view');
+        $this->layout = 'layout_web';
     }
     public function add(){
         $this->layout = 'default';
@@ -51,5 +53,13 @@ class ArticlesController extends AppController {
         $article = $this->Article->findById($id);
         $this->request->data = $article;
         $this->set('categorys',$categorys);
+    }
+    public function view($id) {
+        $article = $this->Article->findById($id);
+        if(!empty($article)){
+            $this->set(compact('article'));
+        }else{
+            throw new ErrorException('Bài viết không tồn tại',400);
+        }
     }
 } 

@@ -6,4 +6,7 @@ class Category extends AppModel {
             'className' => 'Menu',
         )
     );
+    public $hasMany = array(
+        'Article'
+    );
 }

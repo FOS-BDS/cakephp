@@ -92,4 +92,7 @@ class CategoriesController extends AppController {
     public function admin_delete_menu() {
 
     }
+    public function index($slug) {
+        $this->layout = 'layout_web';
+    }
 } 
