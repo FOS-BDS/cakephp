@@ -271,7 +271,7 @@
                             "controller" => "Categories",
                             "action" => "menu_index",
                             'admin'=>true
-                        )); ?>">Edit Menu</a>
+                        )); ?>">Menu - Index</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -311,7 +311,7 @@
                             "controller" => "Articles",
                             "action" => "index",
                             'admin'=>true
-                        )); ?>">Articles - index</a>
+                        )); ?>">Index - Articles</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
