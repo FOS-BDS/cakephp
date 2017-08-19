@@ -32,6 +32,7 @@ class ArticlesController extends AppController {
         $this->set(compact('categorys'));
     }
     public function admin_index() {
+        $this->layout = 'default';
         $this->loadModel('Category');
         $categorys = $this->Category->find('list',array('fields'=>array('id','title')));
         $this->Article->recursive = -1;
@@ -40,6 +41,7 @@ class ArticlesController extends AppController {
         $this->set(compact('articles','categorys'));
     }
     public function admin_edit($id) {
+        $this->layout = 'default';
         if($this->request->is('post') || $this->request->is('put')){
             $this->Article->id = $id;
             if($this->Article->save($this->request->data)){

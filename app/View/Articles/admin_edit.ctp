@@ -13,6 +13,7 @@
                         ));
                     echo $this->Session->flash('success');
                     echo $this->Form->input('title',array('class'=>'form-control'));
+                    echo $this->Form->input('slug',array('class'=>'form-control'));
                     echo $this->Form->input('category_id', array('options' => $categorys, 'empty' => 'Chọn một','class'=>'form-control'));
                     echo $this->Form->input('body',array('type'=>'textarea','class'=>'form-control','id'=>'editor1'));
                     echo $this->Form->input('status',array('label'=>'<b>Published</b>','type'=>'checkbox','class'=>'form-control'));

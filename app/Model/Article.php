@@ -12,5 +12,10 @@ class Article extends AppModel {
     public $belongsTo = array(
         'Category'
     );
-
+    public  $actsAs = array('Sluggable.Sluggable' => array(
+        'label'=>'title',
+        'slug'=>'slug',
+        'separator'=>'-',
+        'overwrite'=>true
+    ));
 }
