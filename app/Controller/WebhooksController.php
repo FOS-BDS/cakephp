@@ -2,6 +2,7 @@
 App::uses('AppController', 'Controller');
 
 class WebhooksController extends AppController {
+    private $verify_token = "verify";
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('index','getToken');
@@ -10,29 +11,6 @@ class WebhooksController extends AppController {
         $this->autoRender = false;
 
         $this->checkWebhook();
-
-        $input = json_decode(file_get_contents('php://input'), true);
-
-        $fanpage_id = isset($input['entry'][0]['id']) ? $input['entry'][0]['id'] : NULL;
-        $sender = isset($input['entry'][0]['messaging'][0]['sender']['id']) ? $input['entry'][0]['messaging'][0]['sender']['id'] : NULL;
-        $message_text = isset($input['entry'][0]['messaging'][0]['message']['text']) ? $input['entry'][0]['messaging'][0]['message']['text'] : NULL;
-
-        // view tạm dữ liệu khi đang dev
-        $this->sendMessageText( $fanpage_id, $sender, 'var_dump => ' . json_encode($input) );
-
-        $this->solveReceiverMessageText($fanpage_id, $sender, $message_text);
-        // lưu log khi user chat với bot
-        $this->saveLogToBigQuery($sender, $fanpage_id, 'chat');
-
-        $this->saveUserInfoChatWithBot($fanpage_id, $sender);
-
-        if( !empty($input['entry'][0]['messaging'][0]['postback']) ) {
-            $this->solvePostback( $sender, $input['entry'][0]['messaging'][0]['postback'], $fanpage_id );
-        }
-
-        if( !empty($input['entry'][0]['messaging'][0]['message']['quick_reply']) ) {
-            $this->solveQuickReply($sender, $input['entry'][0]['messaging'][0]['message']['quick_reply'], $message_text, $fanpage_id);
-        }
 	}
     private function checkWebhook() {
         $hub_verify_token = null;
