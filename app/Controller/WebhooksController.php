@@ -7,6 +7,7 @@ class WebhooksController extends AppController {
         $this->Auth->allow('index','getToken');
     }
 	public function getToken() {
-        echo 123;die;
+        $this->autoRender = false;
+        return 123;
 	}
 }
