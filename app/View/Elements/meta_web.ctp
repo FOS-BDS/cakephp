@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link href="<?php echo $this->Html->url('/') ?>img/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+<link href="<?php echo $this->Html->url('/') ?>app/webroot/img/favicon.ico" type="image/x-icon" rel="shortcut icon" />
 <?php
     $webroot = '/app/webroot';
     echo $this->Html->css($webroot.'/vendor/bootstrap/css/bootstrap.min.css');
