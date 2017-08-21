@@ -208,3 +208,7 @@ footer .glyphicon {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.content-article{
+    margin-left: 10%;
+    margin-right: 10%;
+}
