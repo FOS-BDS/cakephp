@@ -37,5 +37,6 @@ class PagesController extends AppController {
 	}
     public function phpinfo(){
          phpinfo();
+        die;
     }
 }
