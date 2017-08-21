@@ -1,7 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 
-class WebhookController extends AppController {
+class WebhooksController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow('index','getToken');
