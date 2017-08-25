@@ -14,7 +14,7 @@ class WebhooksController extends AppController {
 	}
     private function checkWebhook() {
         $hub_verify_token = null;
-
+        CakeLog::info('requesst tess webhook : '. $this->request->data);
         if(isset($_REQUEST['hub_challenge'])) {
             $challenge = $_REQUEST['hub_challenge'];
             $hub_verify_token = $_REQUEST['hub_verify_token'];
