@@ -1,5 +1,8 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('Security', 'Utility');
+App::uses('Inflector', 'Utility');
+App::uses('Folder', 'Utility');
 
 class AdministratorsController extends AppController{
 
@@ -9,18 +12,15 @@ class AdministratorsController extends AppController{
 		parent::beforeFilter();
 	}
 
-	public function readLog($name = null)
+	public function admin_readLog($name = null)
 	{
-        echo $name;
 		if ($name) {
-			$lines = $this->request->query('lines');
-			if (empty($lines))
-				$lines = 100;
-
-			ob_start();
-			passthru("tail -n $lines " . TMP . 'logs' . DS . $name, $result);
-			$content = ob_get_clean();
-			$this->set(compact('content'));
+            $files = TMP . 'logs' . DS . $name;
+            if(is_file($files)){
+                $file = new File($files);
+                $content = $file->read();
+                $this->set(compact('content'));
+            }
 		}
 	}
 

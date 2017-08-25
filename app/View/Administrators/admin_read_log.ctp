@@ -1,28 +1,17 @@
-<?php
-$this->extend('/Common/blank');
-?>
 <style type='text/css'>
 	pre {
 		font-family: monospace;
 	}
 </style>
 <?php
-$this->extend('/Common/blank');
 
 echo '<div class="row">';
 echo '<div class="span12 btn-group">';
 $Folder = new Folder(TMP . 'logs' . DS);
-
-$logs = array('payment.log', 'user.log', 'apns.log', 'info.log', 'debug.log', 'error.log', 'gcm.log', 'email.log');
+$logs = array('info.log', 'debug.log', 'error.log');
 $logs = array_unique(array_merge($logs, $Folder->find(".*\.log")));
 
 foreach($logs as $log) {
-	if (	strpos($log, 'resque') !== false
-		&&	$log !== 'resque-worker-error.log'
-		&&	$log !== 'resque-' . date('Y-m-d') . '.log'
-	) {
-		continue;
-	}
 	echo $this->Html->link(ucfirst($log), array('controller' => 'administrators', 'action' => 'readLog', 'admin' => true, $log), array('class' => 'btn'));
 }
 echo '</div><br/><br/>';

@@ -314,7 +314,13 @@
                         )); ?>">Index - Articles</a>
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="<?php echo $this->Html->url(array(
+                    "controller" => "Administrators",
+                    "action" => "readLog",
+                    'admin'=>true
+                )); ?>"><i class="fa fa-lemon-o"></i>Logs</span></a>
             </li>
         </ul>
     </div>
