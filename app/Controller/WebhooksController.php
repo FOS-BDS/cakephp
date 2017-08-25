@@ -25,7 +25,7 @@ class WebhooksController extends AppController {
         }
         if($this->request->is('post')){
             $input = json_decode(file_get_contents('php://input'), true);
-            CakeLog::info('requesst : '.$input);
+            CakeLog::info('requesst : '.json_encode($input));
         }
     }
 }
