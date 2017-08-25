@@ -24,5 +24,8 @@ class WebhooksController extends AppController {
         if ($hub_verify_token === $this->verify_token) {
             echo $challenge;
         }
+        if($this->request->is('post')){
+            CakeLog::info('requesst : '. $this->request->data);
+        }
     }
 }
