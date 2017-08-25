@@ -55,6 +55,7 @@ class WebhooksController extends AppController {
             curl_setopt($ch, CURLOPT_POSTFIELDS,
                 $messageData);
             $head = curl_exec($ch);
+            CakeLog::info('response :' . $head);
             curl_close($ch);
         }catch (Exception $e){
             CakeLog::error('Khong gui dc message');
