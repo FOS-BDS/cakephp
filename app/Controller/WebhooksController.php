@@ -24,7 +24,7 @@ class WebhooksController extends AppController {
             echo $challenge;
         }
         if($this->request->is('post')){
-            CakeLog::info('requesst : '. json_encode($this->request->data));
+            CakeLog::info('requesst : '. json_encode($this->request));
         }
     }
 }
