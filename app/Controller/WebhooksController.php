@@ -59,7 +59,10 @@ class WebhooksController extends AppController {
                 json_encode($messageData),
                 $request
             );
-            CakeLog::error('response send message' . $response);
+            $response_result = json_decode($response);
+            if(isset($response_result['error'])){
+                CakeLog::error('Lỗi gửi tin nhắn' . $response .'data send' .$messageData);
+            }
         }catch (Exception $e){
             CakeLog::error('Khong gui dc message' . $e->getMessage());
         }
