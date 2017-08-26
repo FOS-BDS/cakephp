@@ -48,17 +48,20 @@ class WebhooksController extends AppController {
     }
     private  function callSendAPI($messageData){
         try{
-            $url = 'https://graph.facebook.com/v2.10/me/messages';
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_POST, TRUE);
-            curl_setopt($ch, CURLOPT_POSTFIELDS,
-                $messageData);
-            $head = curl_exec($ch);
-            CakeLog::info('response :' . $head);
-            curl_close($ch);
+            App::uses('HttpSocket', 'Network/Http');
+
+            $request = array(
+                'header' => array('Content-Type' => 'application/json')
+            );
+            $HttpSocket = new HttpSocket();
+            $response = $HttpSocket->post(
+                'https://graph.facebook.com/v2.8/me/messages?access_token=',
+                json_encode($messageData),
+                $request
+            );
+            CakeLog::error('response send message' . $response);
         }catch (Exception $e){
-            CakeLog::error('Khong gui dc message');
+            CakeLog::error('Khong gui dc message' . $e->getMessage());
         }
 
     }
