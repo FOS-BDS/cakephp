@@ -55,7 +55,7 @@ class WebhooksController extends AppController {
             );
             $HttpSocket = new HttpSocket();
             $response = $HttpSocket->post(
-                'https://graph.facebook.com/v2.8/me/messages?access_token=',
+                'https://graph.facebook.com/v2.8/me/messages?access_token=EAAW0Hxf6ZCx8BAAZCWUSPz85BSoCRWn7ZAIcyPPor3wXDGHZAZCuU1sI7fGZCesEbyZBUmmvz1zZAQLWZC8Wdb7bxPXiuSJ5p5dHzNOihiUIEZBrZAMZC5504AyqF45pkycibiLkVblTBU6dkZBKbCCMmZCg59OJZBYuZAJ95VPZAaxcBM2M4XAZDZD',
                 json_encode($messageData),
                 $request
             );
