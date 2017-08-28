@@ -32,6 +32,7 @@ class WebhooksController extends AppController {
             $payload = isset($input['entry'][0]['messaging'][0]['postback']) ? $input['entry'][0]['messaging'][0]['postback'] : NULL;
             $quick_reply = isset($input['entry'][0]['messaging'][0]['message']['quick_reply']['payload']) ? $input['entry'][0]['messaging'][0]['message']['quick_reply']['payload'] : NULL;
             if(!empty($fanpage_id)){
+                CakeLog::info('call again .' . $fanpage_id);
                 try{
                     $this->sendMessageToUser($sender,$message_text);
                 }catch (Exception $e){
