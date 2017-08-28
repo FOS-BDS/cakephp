@@ -322,6 +322,9 @@
                     'admin'=>true
                 )); ?>"><i class="fa fa-lemon-o"></i>Logs</span></a>
             </li>
+            <li>
+                <a href="https://yeucongnghe.top/app/webroot/deploying/deploy.php"><i class="fa fa-dashboard"></i>Deploy</span></a>
+            </li>
         </ul>
     </div>
     <!-- /.sidebar-collapse -->
