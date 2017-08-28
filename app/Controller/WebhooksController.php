@@ -44,7 +44,7 @@ class WebhooksController extends AppController {
         }
     }
     private function sendMessageToUser($sender,$message_text){
-        $messageData =array('recipient'=>array('id'=>$sender),'message'=>array('text'=>$message_text));
+        $messageData =array('message'=>array('text'=>$message_text));
         $this->callSendAPI($messageData);
     }
     private  function callSendAPI($messageData){
