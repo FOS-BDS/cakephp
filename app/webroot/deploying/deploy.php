@@ -74,6 +74,7 @@ if (!empty($cur)) {
         echo '<h2>Switch branches</h2>';
         run('git remote update -p origin', false);
         $result = run("sudo git branch -r");
+        debug($result);
         echo '<ul>';
         foreach ($result[0] as $key => $branch) {
             $branch = trim($branch);
