@@ -35,7 +35,7 @@ class WebhooksController extends AppController {
                 try{
                     $this->sendMessageToUser($sender,$message_text);
                 }catch (Exception $e){
-                    CakeLog::error('error sendmessage');
+                    CakeLog::error('error sendmessage'. $e->getMessage());
                 }
             }else{
                 CakeLog::error('missing fanpage id');
