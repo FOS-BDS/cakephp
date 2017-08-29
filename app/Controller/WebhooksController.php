@@ -25,6 +25,7 @@ class WebhooksController extends AppController {
         }
         if($this->request->is('post')){
             $input = json_decode(file_get_contents('php://input'), true);
+            CakeLog::info('response get :' . json_encode($input));
             $fanpage_id = isset($input['entry'][0]['id']) ? $input['entry'][0]['id'] : NULL;
             $sender = isset($input['entry'][0]['messaging'][0]['sender']['id']) ? $input['entry'][0]['messaging'][0]['sender']['id'] : NULL;
             $message_text = isset($input['entry'][0]['messaging'][0]['message']['text']) ? $input['entry'][0]['messaging'][0]['message']['text'] : NULL;
