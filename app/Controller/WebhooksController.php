@@ -35,6 +35,7 @@ class WebhooksController extends AppController {
             if(!empty($fanpage_id)){
                 CakeLog::info('call again .' . $fanpage_id);
                 try{
+                    CakeLog::info('truoc khi send message to user'. $message_text);
                     $this->sendMessageToUser($sender,$message_text);
                 }catch (Exception $e){
                     CakeLog::error('error sendmessage'. $e->getMessage());
@@ -46,6 +47,7 @@ class WebhooksController extends AppController {
     }
     private function sendMessageToUser($sender,$message_text){
         $messageData =array('recipient'=>array('id'=>$sender),'message'=>array('text'=>$message_text));
+        CakeLog::info('trong khi send message to user'.json_encode($messageData));
         $this->callSendAPI($messageData);
     }
     private  function callSendAPI($messageData){
@@ -55,6 +57,7 @@ class WebhooksController extends AppController {
             $request = array(
                 'header' => array('Content-Type' => 'application/json')
             );
+            CakeLog::info('send message to user'.json_encode($messageData));
             $HttpSocket = new HttpSocket();
             $response = $HttpSocket->post(
                 'https://graph.facebook.com/v2.8/me/messages?access_token=EAAW0Hxf6ZCx8BAAZCWUSPz85BSoCRWn7ZAIcyPPor3wXDGHZAZCuU1sI7fGZCesEbyZBUmmvz1zZAQLWZC8Wdb7bxPXiuSJ5p5dHzNOihiUIEZBrZAMZC5504AyqF45pkycibiLkVblTBU6dkZBKbCCMmZCg59OJZBYuZAJ95VPZAaxcBM2M4XAZDZD',
