@@ -25,17 +25,20 @@ class WebhooksController extends AppController {
         }
         if($this->request->is('post')){
             $input = json_decode(file_get_contents('php://input'), true);
-            CakeLog::info('response get :' . json_encode($input));
             $fanpage_id = isset($input['entry'][0]['id']) ? $input['entry'][0]['id'] : NULL;
             $sender = isset($input['entry'][0]['messaging'][0]['sender']['id']) ? $input['entry'][0]['messaging'][0]['sender']['id'] : NULL;
             $message_text = isset($input['entry'][0]['messaging'][0]['message']['text']) ? $input['entry'][0]['messaging'][0]['message']['text'] : NULL;
             $attachments = isset($input['entry'][0]['messaging'][0]['message']['attachments']) ? $input['entry'][0]['messaging'][0]['message']['attachments'] : NULL;
             $payload = isset($input['entry'][0]['messaging'][0]['postback']) ? $input['entry'][0]['messaging'][0]['postback'] : NULL;
             $quick_reply = isset($input['entry'][0]['messaging'][0]['message']['quick_reply']['payload']) ? $input['entry'][0]['messaging'][0]['message']['quick_reply']['payload'] : NULL;
-            if(!empty($fanpage_id)){
-                CakeLog::info('call again .' . $fanpage_id);
+            if(!empty($fanpage_id) && !empty($message_text)){
                 try{
-                    CakeLog::info('truoc khi send message to user'. $message_text);
+                    if(!empty($payload)){
+                        $message_text = 'Xin chào bạn đến với fanpage, chúng tôi có thể giúp gì cho bạn!';
+                    }
+                    if(!empty($message_text) && empty($payload)){
+                        $message_text = 'Rất vui được trợ giúp, mời bạn chọn';
+                    }
                     $this->sendMessageToUser($sender,$message_text);
                 }catch (Exception $e){
                     CakeLog::error('error sendmessage'. $e->getMessage());
