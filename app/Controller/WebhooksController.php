@@ -50,7 +50,7 @@ class WebhooksController extends AppController {
         }
     }
     private function sendMessageToUser($sender,$message_text){
-        $messageData =array('recipient'=>array('id'=>$sender),'message'=>array('text'=>$message_text));
+        $messageData =array('recipient'=>array('id'=>$sender),'message'=>array('text'=>$message_text),'sender_action'=>'typing_on');
         CakeLog::info('trong khi send message to user'.json_encode($messageData));
         $this->callSendAPI($messageData);
     }
