@@ -1,10 +1,11 @@
 <?php
 App::uses('AppController', 'Controller');
+App::import('Lib', 'Redise');
 
 class PagesController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('index');
+        $this->Auth->allow('index','redis');
     }
 	public function display() {
 		
@@ -36,7 +37,26 @@ class PagesController extends AppController {
         $this->set(compact('menus','new_article','categories','tech_article','medicine_articles'));
 	}
     public function phpinfo(){
-         phpinfo();
+         echo phpinfo();
         die;
+    }
+    public function redis(){
+        $key = 'sms';
+        require_once(APP.'Lib/Redis.php');
+        $redis = new App\Lib\Redis();
+//            $tmp = array(
+//                'address' => 11,
+//                'params'  => 2,
+//                'sms'     => 12
+//            );
+//        $redis::rPush($key, $tmp, 'queue');
+        $redis::rPush('default',array(
+            'model' => 'NotificationRead',
+            'data' => array(
+                'id'        => 1,
+                'model'      => 'test',
+                'created'   => date('Y-m-d H:i:s')
+            )
+        ),'queue');
     }
 }

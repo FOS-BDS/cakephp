@@ -113,3 +113,23 @@ CakeLog::config('info', array(
 	'types' => array('info'),
 	'file' => 'info',
 ));
+Configure::write("Redis_Configs", array(
+    'queue' => array(
+        'engine' => 'Redis',
+        'prefix' => 'queue_default',
+        'server' => '127.0.0.1',
+        'port' => 6379,
+        'duration' => '+48 hours',
+        'timeout' => 1,
+        'persistent' => true
+    ),
+    'second_redis' => array(
+        'engine' => 'Redis',
+        'prefix' => 'second_redis',
+        'server' => '127.0.0.1',
+        'port' => 6379,
+        'duration' => '+48 hours',
+        'timeout' => 5
+    )
+));
+
