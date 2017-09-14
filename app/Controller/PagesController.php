@@ -59,4 +59,50 @@ class PagesController extends AppController {
             )
         ),'queue');
     }
+    public function subscribeClientId()
+    {
+        $this->autoRender = false;
+        $this->loadModel('ChromeClient');
+        $this->loadModel('Websites');
+        $websiteUrl = $this->request->data['websiteUrl'];
+        $websiteUrl = explode('/',$websiteUrl);
+        $websiteName = $websiteUrl[2];
+        //using if for localhost if it has a port
+        $websiteName = explode(':',$websiteName);
+        $website = $this->Websites->find('first',
+            array(
+                'conditions' => array(
+                    'url' => $websiteName[0]
+                )
+            )
+        );
+        $exist = $this->ChromeClient->find('first',
+            array(
+                'conditions' => array(
+                    'registration_id' => $this->request->data['clientId']
+                )
+            ));
+
+        $insertData = array(
+            'ChromeClient' => array(
+                'registration_id' => $this->request->data['clientId'],
+                'website_id' => $website['Websites']['id'],
+                'created' => date('Y-m-d H:i:s')
+            )
+        );
+
+        if(!empty($exist)) {
+            $this->ChromeClient->id = $exist['ChromeClient']['id'];
+        } else {
+            $this->ChromeClient->create();
+            $redis = new RedisQueue('default','chrome-notify-'.$website['Websites']['id']);
+            $redis->rPush($insertData['ChromeClient']['registration_id']);
+        }
+
+        try{
+            $this->ChromeClient->save($insertData);
+        } catch(Exception $e) {
+            CakeLog::info('Error when subcribe id '.$e->getMessage());
+        }
+    }
 }
