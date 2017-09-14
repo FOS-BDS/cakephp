@@ -11,7 +11,7 @@ var config = {
 firebase.initializeApp(config);
 const messaging = firebase.messaging();
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').then(function(registration){
+    navigator.serviceWorker.register('app/webroot/service-worker.js').then(function(registration){
         messaging.useServiceWorker(registration);
         messaging.requestPermission()
             .then(function() {
